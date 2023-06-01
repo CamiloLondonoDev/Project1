@@ -24,6 +24,8 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
+import '@testing-library/cypress/add-commands'
+
 //Comando personalizado 
 Cypress.Commands.add("login", (correo) => {
     
