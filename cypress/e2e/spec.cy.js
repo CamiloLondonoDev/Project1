@@ -118,6 +118,13 @@
 //     )
 //   })
 // })
+describe('prueba usando Cypress testing library', function(){
+  it('Prueba usando la función fund by text', function(){
+    cy.visit('http://logofree.esy.es/');
+    cy.findByText('Automation Testing').should('exist')
+
+  })
+})
 
 //Test with personalised command
 describe('Grupo de Pruebas', function () {
@@ -133,6 +140,26 @@ describe('Grupo de Pruebas', function () {
     )
   })
 })
+
+describe('Grupo de Pruebas', function () {
+  it('Prueba 1', function () {
+    cy.visit('http://logofree.esy.es/');
+
+    cy.get('[placeholder="Buscar …"]')
+    cy.get('[placeholder="Buscar …"]').type("Escribo sobre el elemento")
+    cy.get('[placeholder="Buscar …"]').clear(); //Limpio la barra de búsqueda
+  })
+})
+
+describe('Grupo de Pruebas', function () {
+  it('Prueba 1', function () {
+    cy.visit('http://logofree.esy.es/');
+
+    cy.get('[placeholder="Buscar …"]').type("Escribo sobre el elemento").clear();
+    
+  })
+})
+
 
 
 
