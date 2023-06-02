@@ -118,45 +118,70 @@
 //     )
 //   })
 // })
-describe('prueba usando Cypress testing library', function(){
-  it('Prueba usando la función fund by text', function(){
-    cy.visit('http://logofree.esy.es/');
-    cy.findByText('Automation Testing').should('exist')
+// describe('prueba usando Cypress testing library', function(){
+//   it('Prueba usando la función fund by text', function(){
+//     cy.visit('http://logofree.esy.es/');
+//     cy.findByText('Automation Testing').should('exist')
 
-  })
-})
+//   })
+// })
 
-//Test with personalised command
-describe('Grupo de Pruebas', function () {
-  beforeEach(() => {
-    cy.fixture('PruebaFixtures.json').as('userData')
-  })
-  it('Prueba 1', function () {
-    cy.get('@userData').then((userData) => {
-      cy.user(userData.username)
-      cy.login(userData.correo)
-      //cy.screenshot();
-    }
-    )
-  })
-})
+// //Test with personalised command
+// describe('Grupo de Pruebas', function () {
+//   beforeEach(() => {
+//     cy.fixture('PruebaFixtures.json').as('userData')
+//   })
+//   it('Prueba 1', function () {
+//     cy.get('@userData').then((userData) => {
+//       cy.user(userData.username)
+//       cy.login(userData.correo)
+//       //cy.screenshot();
+//     }
+//     )
+//   })
+// })
 
-describe('Grupo de Pruebas', function () {
-  it('Prueba 1', function () {
-    cy.visit('http://logofree.esy.es/');
+// describe('Grupo de Pruebas', function () {
+//   it('Prueba 1', function () {
+//     cy.visit('http://logofree.esy.es/');
 
-    cy.get('[placeholder="Buscar …"]')
-    cy.get('[placeholder="Buscar …"]').type("Escribo sobre el elemento")
-    cy.get('[placeholder="Buscar …"]').clear(); //Limpio la barra de búsqueda
-  })
-})
+//     cy.get('[placeholder="Buscar …"]')
+//     cy.get('[placeholder="Buscar …"]').type("Escribo sobre el elemento")
+//     cy.get('[placeholder="Buscar …"]').clear(); //Limpio la barra de búsqueda
+//   })
+// })
 
-describe('Grupo de Pruebas', function () {
-  it('Prueba 1', function () {
-    cy.visit('http://logofree.esy.es/');
+// describe('Grupo de Pruebas', function () {
+//   it('Prueba 1', function () {
+//     cy.visit('http://logofree.esy.es/');
 
-    cy.get('[placeholder="Buscar …"]').type("Escribo sobre el elemento").clear();
+//     cy.get('[placeholder="Buscar …"]').type("Escribo sobre el elemento").clear();
     
+//   })
+// })
+
+//Cypress Asincrono
+describe('Cypress Asincrono', function(){
+  it('Asincronia', function(){
+    cy.visit('https://example.cypress.io/commands/actions');
+    cy.findByPlaceholderText('Email').type('test@email.com');
+    cy.wait(2000).then(()=>{
+      console.log('Test is finished');
+    })
+  })
+})
+
+describe('Cypress sincronico con .then', function(){
+  it('Sinconia', function(){
+    cy.visit('https://example.cypress.io/commands/actions');
+    cy.findByPlaceholderText('Email').type('test@email.com');
+    cy.wait(2000).then(()=>{
+      fetch('https://api.spacexdata.com/v3/missions')
+      .then((res)=>res.json())
+      .then((data)=>{
+        console.log(data)
+      })
+    })
   })
 })
 
