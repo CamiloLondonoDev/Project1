@@ -118,6 +118,20 @@
 //     )
 //   })
 // })
+
+// //Actualizar fixture inline
+// describe('Grupo de Pruebas', function () {
+//   beforeEach(() => {
+//     cy.fixture('PruebaFixtures.json').as('userData')
+//   })
+//   it('Prueba 1', function () {
+//     cy.get('@userData').then((userData) => {
+//       data.producto = 'productoActualizado'
+//     })
+//   })
+// })
+
+
 // describe('prueba usando Cypress testing library', function(){
 //   it('Prueba usando la función fund by text', function(){
 //     cy.visit('http://logofree.esy.es/');
@@ -160,28 +174,55 @@
 //   })
 // })
 
-//Cypress Asincrono
-describe('Cypress Asincrono', function(){
-  it('Asincronia', function(){
-    cy.visit('https://example.cypress.io/commands/actions');
-    cy.findByPlaceholderText('Email').type('test@email.com');
-    cy.wait(2000).then(()=>{
-      console.log('Test is finished');
-    })
-  })
-})
+// //Cypress Asincrono
+// describe('Cypress Asincrono', function(){
+//   it('Asincronia', function(){
+//     cy.visit('https://example.cypress.io/commands/actions');
+//     cy.findByPlaceholderText('Email').type('test@email.com');
+//     cy.wait(2000).then(()=>{
+//       console.log('Test is finished');
+//     })
+//   })
+// })
 
-describe('Cypress sincronico con .then', function(){
-  it('Sinconia', function(){
+// describe('Cypress sincronico con .then', function(){
+//   it('Sinconia', function(){
+//     cy.visit('https://example.cypress.io/commands/actions');
+//     cy.findByPlaceholderText('Email').type('test@email.com');
+//     cy.wait(2000).then(()=>{
+//       fetch('https://api.spacexdata.com/v3/missions')
+//       .then((res)=>res.json())
+//       .then((data)=>{
+//         console.log(data)
+//       })
+//     })
+//   })
+// })
+
+
+// //Positive assertion
+// describe('Positive Asertions Example', function(){
+//   it('shows an active class for the current page', ()=>{
+//     cy.visit('https://example.cypress.io/commands/actions');
+//     cy.get('.dropdown-menu').find('li').eq(2).should('have.class', 'active')
+//   })
+// })
+
+
+// //Negative assertion
+// describe('Negative Assertion Example', function(){
+//   it('should not have an active class on inactive pages', ()=>{
+//     cy.visit('https://example.cypress.io/commands/actions');
+//     cy.get('.dropdown-menu').find('li').first().should('not.have.class', 'active')
+//   })
+// })
+
+//
+describe('Test Using the UI', function(){
+  it('Link to the actions page correctly',()=>{
     cy.visit('https://example.cypress.io/commands/actions');
-    cy.findByPlaceholderText('Email').type('test@email.com');
-    cy.wait(2000).then(()=>{
-      fetch('https://api.spacexdata.com/v3/missions')
-      .then((res)=>res.json())
-      .then((data)=>{
-        console.log(data)
-      })
-    })
+    cy.findAllByText('Actions').last().click()
+    cy.url().should('include', 'commands/actions')
   })
 })
 
