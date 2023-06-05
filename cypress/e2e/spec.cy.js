@@ -140,7 +140,7 @@
 //   })
 // })
 
-// //Test with personalised command
+//Test with personalised command
 // describe('Grupo de Pruebas', function () {
 //   beforeEach(() => {
 //     cy.fixture('PruebaFixtures.json').as('userData')
@@ -218,13 +218,64 @@
 // })
 
 //
-describe('Test Using the UI', function(){
-  it('Link to the actions page correctly',()=>{
-    cy.visit('https://example.cypress.io/commands/actions');
-    cy.findAllByText('Actions').last().click()
-    cy.url().should('include', 'commands/actions')
-  })
-})
+// describe('Test Using the UI', function(){
+//   it('Link to the actions page correctly',()=>{
+//     cy.visit('https://example.cypress.io/commands/actions');
+//     cy.findAllByText('Actions').last().click()
+//     cy.url().should('include', 'commands/actions')
+//   })
+// })
+
+// describe('Test Using intercept', function(){
+//   beforeEach(()=>{
+//     cy.fixture('example').then(function(data){
+//       this.data = data;
+//       cy.log('THIS:', this.data);
+//     })
+//   })
+
+//   it('Uses fixture data in a network request', function(){
+//     cy.visit('https://example.cypress.io/commands/network-requests');
+//     cy.intercept('GET', '**/comments/*', this.data).as('getComment');
+//     cy.get('.network-btn').click();
+//     cy.wait('@getComment').then((res)=>{
+//       cy.log('Response: ', res)
+//     })
+//   })
+// })
+
+// describe('Grupo de Pruebas', function () {
+//   beforeEach(() => {
+//     cy.fixture('example.json').as('userData')
+//   })
+//   it('Prueba 1', function () {
+//     cy.get('@userData').then((userData) => {
+//       cy.login(userData.correo)
+//     })
+//   })
+// })
+
+
+////No funciona Type
+// describe('Grupo de Pruebas', function () {
+//   it('Prueba 1', function () {
+//     cy.visit('https://example.cypress.io/commands/actions')
+//     cy.get('#password1').click().type('1234')
+//     cy.get('#email1').type('correo@gmail.com')
+//     // cy.get('#email1').type('correo@gmail.com')
+//     //     cy.get('.action-email').type('fake@email.com')
+//   })
+// })
+
+//// Template
+// describe('', function(){
+//   it('', function(){
+    
+//   })
+// })
+
+
+
 
 
 
